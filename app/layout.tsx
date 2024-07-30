@@ -2,8 +2,13 @@ import React from 'react'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
+import { Header } from "@/components/shared/header";
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({
+   subsets: ['latin'],
+   variable: '--font-inter',
+   weight: ['200', '300', '400', '500', '600', '700', '800']
+})
 
 export const metadata: Metadata = {
    title: 'yamakasi',
@@ -14,7 +19,10 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
    return (
       <html lang="en">
       <body className={inter.className}>
-      <main>{children}</main>
+         <Header />
+         <main className="min-h-screen max-w-[1440px] overflow-y-auto mx-auto">
+            {children}
+         </main>
       </body>
       </html>
    )
